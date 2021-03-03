@@ -1,1 +1,1 @@
-# python-practice
+# First DJANGO Practice
