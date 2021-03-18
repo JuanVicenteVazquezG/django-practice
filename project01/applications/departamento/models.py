@@ -11,8 +11,8 @@ class Departamento(models.Model):
     class Meta:
         verbose_name = "Mis departamentos"
         verbose_name_plural = "Areas de la empresa"
-        ordering = ['name']
-        unique_together = ('name', 'short_name')
+        ordering = ['-name']  # Reverse Alphabetical order by name
+        unique_together = ('name', 'short_name')  #  avoid name+shortname repetitions
 
     def __str__(self):
         return f"{str(self.pk)} -  {self.name} - {self.short_name}"
