@@ -15,7 +15,7 @@ class Habilidades(models.Model):
         verbose_name_plural = "habilidades Empleados"
 
     def __str__(self):
-        return f"{str(self.id)} - {self.first_habilidad}"
+        return f"{str(self.id)} - {self.habilidades}"
 
 
 class Empleado(models.Model):
@@ -40,6 +40,7 @@ class Empleado(models.Model):
         verbose_name_plural = " Empleados de la empresa"
         # ordenacion descendente por el primer nombre
         ordering = ['-first_name', 'departamento']
+        # avoid first_name+departamento repetitions
         unique_together = ('first_name', 'departamento')
 
     def __str__(self):
