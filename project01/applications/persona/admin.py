@@ -7,13 +7,18 @@ from .models import Empleado, Habilidades
 
 admin.site.register(Habilidades)
 
-class EmpleadosAdmin(admin.ModelAdmin):
-	list_display = (
-		'first_name',
-		'las_name',
-		'departamento',
-		'job',
 
-		)
+# atributo que mostrara todos los registros de este modelo
+class EmpleadosAdmin(admin.ModelAdmin):
+    list_display = (
+        'first_name',
+        'last_name',
+        'departamento',
+        'job',
+
+    )
+    search_fields = ('first_name',)
+    list_filter = ('job',)
+
 
 admin.site.register(Empleado, EmpleadosAdmin)
